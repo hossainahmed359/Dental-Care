@@ -1,24 +1,18 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import './Navigaion.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTooth } from '@fortawesome/free-solid-svg-icons'
-
-
 
 import icon from '../Images/Icons/icon6.png'
 
 const Navigation = () => {
 
-    const tooth = <FontAwesomeIcon icon={faTooth} />
     return (
         <div>
             <Navbar bg="info" variant="dark" expand="lg">
                 <Container fluid>
                     <Navbar.Brand href="/home" className="d-flex align-items-center">
-                        <h1 className="display-inline-blok">De</h1>
-                        <h5 className="d-inline-block mt-2 mx-auto">{tooth}</h5>
-                        <h1 className="d-inline-block">tal Care</h1>
+                        <img src={icon} alt="" />
+                        <h2>Dental Care</h2>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
