@@ -18,7 +18,7 @@ const ServiceDetails = () => {
     //Load Reviewer
     const [reviewer, setReviewer] = useState({})
     useEffect(() => {
-        fetch('https://randomuser.me/api/')
+        fetch('https://randomuser.me/api/?gender=male')
             .then(res => res.json())
             .then(data => setReviewer(data.results[0]))
     }, [])
