@@ -1,13 +1,28 @@
 import React from 'react';
+import { Button, Card, Col } from 'react-bootstrap';
+import './Service.css'
 
 const Service = (props) => {
-    const { price, picture, name, description } = props.service
+    const { picture, name, description } = props.service
     return (
         <div>
-            <img src={picture} alt="" />
-            <h1>{name}</h1>
-            <h3>{price}</h3>
-            <p> <small>{description}</small> </p>
+            <Col className="service-card">
+                <Card className="border-0 shadow">
+                    <Card.Img
+                        variant="top"
+                        style={{ height: 200, width: 150 }}
+                        className="card-photo mt-2 mx-auto shadow rounded-circle w-50"
+                        src={picture}
+                    />
+                    <Card.Body>
+                        <Card.Title className="my-2">{name}</Card.Title>
+                        <Card.Text>
+                            <p>{description.slice(0, 120)}...</p>
+                        </Card.Text>
+                        <Button variant="primary mb-2">Read More</Button>
+                    </Card.Body>
+                </Card>
+            </Col>
         </div>
     );
 };

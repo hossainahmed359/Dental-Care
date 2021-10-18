@@ -1,17 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect, useState } from 'react';
 import './App.css';
 import Home from './Home/Home';
 import Navigation from './Navigation/Navigation';
 
 function App() {
-  const [services, setServices] = useState([])
-  useEffect(() => {
-    fetch('./services.json')
-      .then(res => res.json())
-      .then(data => setServices(data))
-  }, [])
-  // console.log(services)
 
   return (
     <div className="App">
