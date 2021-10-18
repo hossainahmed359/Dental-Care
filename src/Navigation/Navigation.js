@@ -11,7 +11,7 @@ const Navigation = () => {
             <Navbar bg="info" variant="dark" expand="lg">
                 <Container fluid>
                     <Navbar.Brand href="/home" className="d-flex align-items-center">
-                        <img src={icon} alt="" />
+                        <img height="70" src={icon} alt="" />
                         <h2>Dental Care</h2>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
