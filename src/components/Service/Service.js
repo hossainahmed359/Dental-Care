@@ -10,11 +10,11 @@ const Service = (props) => {
                 <Card className="border-0 shadow">
                     <Card.Img
                         variant="top"
-                        style={{ height: 200, width: 150 }}
-                        className="card-photo mt-2 mx-auto shadow rounded-circle w-50"
+                        style={{ width: '20%' }}
+                        className="card-photo my-3 mx-auto"
                         src={picture}
                     />
-                    <Card.Body>
+                    <Card.Body className="text-start">
                         <Card.Title className="my-2">{name}</Card.Title>
                         <Card.Text>
                             <p>{description.slice(0, 120)}...</p>
