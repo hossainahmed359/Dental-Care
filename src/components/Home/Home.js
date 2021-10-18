@@ -1,7 +1,7 @@
 import React from 'react';
-import Footer from '../components/Footer/Footer';
-import HomePageServices from '../components/HomePageServices/HomePageServices';
-import Slider from '../components/Slider/Slider';
+import Footer from '../Footer/Footer';
+import HomePageServices from '../HomePageServices/HomePageServices';
+import Slider from '../Slider/Slider';
 
 
 const Home = () => {

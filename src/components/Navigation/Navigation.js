@@ -3,7 +3,7 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import './Navigaion.css'
 import { Link } from "react-router-dom";
 
-import icon from '../Images/Icons/icon6.png'
+import icon from '../../Images/Icons/icon6.png'
 
 const Navigation = () => {
 

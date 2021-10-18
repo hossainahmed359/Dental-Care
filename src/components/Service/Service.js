@@ -1,9 +1,10 @@
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './Service.css'
 
 const Service = (props) => {
-    const { picture, name, description } = props.service
+    const { _id, photo, title, description } = props.service
     return (
         <div>
             <Col className="service-card">
@@ -12,14 +13,16 @@ const Service = (props) => {
                         variant="top"
                         style={{ width: '20%' }}
                         className="card-photo my-3 mx-auto"
-                        src={picture}
+                        src={photo}
                     />
                     <Card.Body className="text-start">
-                        <Card.Title className="my-2">{name}</Card.Title>
+                        <Card.Title className="my-2">{title}</Card.Title>
                         <Card.Text>
-                            <p>{description.slice(0, 120)}...</p>
+                            {description.slice(0, 120)}...
                         </Card.Text>
-                        <Button variant="primary mb-2">Read More</Button>
+                        <Link to={`/servicedetails/${_id}`}>
+                            <Button variant="primary mb-2">Read More</Button>
+                        </Link>
                     </Card.Body>
                 </Card>
             </Col>

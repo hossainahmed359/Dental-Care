@@ -12,7 +12,6 @@ const HomePageServices = () => {
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
-    console.log(services)
 
     return (
         <div className="my-5 container">
