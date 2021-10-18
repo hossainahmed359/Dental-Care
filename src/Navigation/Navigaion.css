@@ -1,0 +1,10 @@
+.nav-links a {
+    font-weight: 500;
+    text-decoration: none;
+    color: #fff;
+    margin: 0 10px;
+    transition: 0.5s;
+}
+.nav-links a:hover {
+    border-bottom: 1px solid white ;
+}

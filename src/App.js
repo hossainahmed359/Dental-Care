@@ -1,7 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
 import './App.css';
-import Service from './components/Service/Service';
+import Home from './Home/Home';
+import Navigation from './Navigation/Navigation';
 
 function App() {
   const [services, setServices] = useState([])
@@ -10,12 +11,12 @@ function App() {
       .then(res => res.json())
       .then(data => setServices(data))
   }, [])
-  console.log(services)
+  // console.log(services)
 
   return (
     <div className="App">
-      <h1 className="text-danger">Assignment 10</h1>
-      {services.map(service => <Service key={service._id} service={service}></Service>)}
+      <Navigation></Navigation>
+      <Home></Home>
     </div>
   );
 }
@@ -23,3 +24,11 @@ function App() {
 export default App;
 
 // {services?.map(service => <Service key={service._id} service={service}></Service>)}
+
+/*
+<Services></Services>
+<AboutUs></AboutUs>
+<Doctors></Doctors>
+<Login></Login>
+<NotFound></NotFound>
+*/
