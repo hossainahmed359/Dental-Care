@@ -49,10 +49,8 @@ const SingleServiceDetails = (props) => {
                         </Card.Body>
                     </Card>
                 </Col>
-
             </Row>
-
-
+            <br />
         </div >
     );
 };
