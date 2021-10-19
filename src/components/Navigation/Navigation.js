@@ -23,8 +23,8 @@ const Navigation = () => {
                         <Nav className="nav-links ms-auto align-items-center">
                             <Link to="/home">Home</Link>
                             <Link to="/services">Services</Link>
-                            <Link to="/aboutus">About Us</Link>
                             <Link to="/doctors">Doctors</Link>
+                            <Link to="/aboutus">About Us</Link>
                             {!user?.email ? <Link to="/login">Log In</Link> : <Button onClick={logOut} variant="light">Log Out</Button>}
                         </Nav>
                     </Navbar.Collapse>

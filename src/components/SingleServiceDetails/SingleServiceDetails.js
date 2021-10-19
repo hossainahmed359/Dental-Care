@@ -14,11 +14,11 @@ const SingleServiceDetails = (props) => {
 
     return (
         <div>
-            <Row xs={1} md={2} className="my-5 align-items-center border border-info shadow">
+            <Row xs={1} md={2} className="my-5 d-flex flex-row-reverse align-items-center border border-info shadow">
                 <Col><Card className="border-0"> <Card.Body> <h2>Service Descrition</h2> </Card.Body> </Card></Col>
                 <Col>
                     <Card className="service-details border-0">
-                        <Card.Img className="w-100" variant="top" src={detail_picture} />
+                        <Card.Img className="w-100 mx-auto my-4 border rounded" variant="top" src={detail_picture} />
                         <Card.Body className="text-start">
                             <Card.Title>{title}</Card.Title>
                             <h3 className="text-info">
