@@ -3,7 +3,7 @@ import { Card, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const ServicesPageService = (props) => {
-    const { _id, photo, title, description } = props.service
+    const { _id, photo, title, description, detail_picture } = props.service
 
     return (
         <div>
@@ -11,12 +11,12 @@ const ServicesPageService = (props) => {
                 <Card className="border-0 shadow">
                     <Card.Img
                         variant="top"
-                        style={{ width: '20%' }}
+                        style={{ width: '100%' }}
                         className="card-photo my-3 mx-auto"
-                        src={photo}
+                        src={detail_picture}
                     />
                     <Card.Body className="text-start">
-                        <Card.Title className="my-2">{title}</Card.Title>
+                        <Card.Title className="mb-2">{title}</Card.Title>
                         <Card.Text>
                             {description.slice(0, 120)}...
                         </Card.Text>

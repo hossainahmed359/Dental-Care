@@ -1,0 +1,7 @@
+.about-card{
+    box-shadow: 5px 4px 20px 10px rgb(241, 241, 241);
+    transition: 0.6s;
+}
+.about-card:hover{
+    box-shadow: 5px 4px 20px 8px rgb(209, 209, 209);
+}
