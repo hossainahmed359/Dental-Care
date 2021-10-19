@@ -135,8 +135,8 @@ const Login = () => {
                 <h3 className="m-3 text-muted">OR</h3>
 
                 <Form onSubmit={handleEmailRegistrationOrLogin} id="myform" className="mx-auto col-lg-5">
+                    {!doesExist && <Form.Control onBlur={handleUserName} className="py-3 my-3" type="name" placeholder="Your Name || Required" required />}
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        {!doesExist && <Form.Control onBlur={handleUserName} className="py-3 my-3" type="name" placeholder="Your Name || Required" required />}
                         <Form.Control onBlur={handleUserEmail} className="py-3 my-3" type="email" placeholder="Enter email" required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicPassword">
