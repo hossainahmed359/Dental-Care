@@ -32,28 +32,13 @@ const useFirebase = () => {
 
     // Email Password Registration
     const createAccountWithEmail = (email, password) => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                // ...
-            })
-            .catch((error) => {
-                setError(error.message)
-            });
+        return createUserWithEmailAndPassword(auth, email, password)
     }
 
     // Email Password Login
     const emailPasswordSignIn = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                // ...
-            })
-            .catch((error) => {
-                setError(error.message)
-            });
+        return signInWithEmailAndPassword(auth, email, password)
+
     }
 
     // Update User Name
