@@ -4,7 +4,7 @@ import { useHistory, useLocation } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
-    const { createAccountWithEmail, updateUserName, emailPasswordSignIn, googleSignIn, facebookSignIn } = useAuth();
+    const { createAccountWithEmail, updateUserName, emailPasswordSignIn, googleSignIn, facebookSignIn, isLoading, setIsLoading } = useAuth();
 
     //Redirect 
     const location = useLocation()
@@ -48,7 +48,8 @@ const Login = () => {
                 setErrorMessage("")
             }).catch((error) => {
                 setErrorMessage(error.message);
-            });
+            })
+            .finally(setIsLoading(false))
     }
 
     // FaceBook Sign In
@@ -62,7 +63,8 @@ const Login = () => {
             })
             .catch((error) => {
                 setErrorMessage(error.message);
-            });
+            })
+            .finally(setIsLoading(false))
     }
 
     // handle email Registration || Create Account
@@ -77,7 +79,8 @@ const Login = () => {
             })
             .catch((error) => {
                 setErrorMessage(error.message)
-            });
+            })
+            .finally(setIsLoading(false))
     }
 
 
@@ -92,7 +95,8 @@ const Login = () => {
             })
             .catch((error) => {
                 setErrorMessage(error.message)
-            });
+            })
+            .finally(setIsLoading(false))
     }
 
     // Email & Password Registration || Sign In
@@ -131,7 +135,7 @@ const Login = () => {
                 <h2 className="my-3">OR</h2>
                 <Form onSubmit={handleEmailRegistrationOrLogin} id="myform" className="mx-auto col-lg-5">
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        {!doesExist && <Form.Control onBlur={handleUserName} className="py-3 my-3" type="name" placeholder="Your Name" />}
+                        {!doesExist && <Form.Control onBlur={handleUserName} className="py-3 my-3" type="name" placeholder="Your Name || Required" required />}
                         <Form.Control onBlur={handleUserEmail} className="py-3 my-3" type="email" placeholder="Enter email" required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicPassword">

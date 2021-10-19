@@ -10,6 +10,7 @@ initializeAuthentication();
 const useFirebase = () => {
 
     // states
+    const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState('');
     const [user, setUser] = useState({});
 
@@ -22,23 +23,26 @@ const useFirebase = () => {
 
     // Google Sign In
     const googleSignIn = () => {
+        setIsLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
 
     // Facebook Sign In
     const facebookSignIn = () => {
+        setIsLoading(true)
         return signInWithPopup(auth, facebookProvider)
     }
 
     // Email Password Registration
     const createAccountWithEmail = (email, password) => {
+        setIsLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     // Email Password Login
     const emailPasswordSignIn = (email, password) => {
+        setIsLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
-
     }
 
     // Update User Name
@@ -61,25 +65,30 @@ const useFirebase = () => {
                 setUser(user)
                 const uid = user.uid;
                 // ...
-            } else {
+            }
+            else {
                 // User is signed out
                 // ...
             }
+            setIsLoading(false)
         });
     }, [])
 
     // Sign Out 
     const logOut = () => {
+        setIsLoading(true)
         signOut(auth)
             .then(() => {
                 setUser({})
-            }).catch((error) => {
+            })
+            .catch((error) => {
                 setError(error.message);
-            });
+            })
+            .finally(() => setIsLoading(false))
     }
 
     // Return
-    return { user, error, createAccountWithEmail, updateUserName, emailPasswordSignIn, googleSignIn, facebookSignIn, logOut }
+    return { user, error, isLoading, setIsLoading, createAccountWithEmail, updateUserName, emailPasswordSignIn, googleSignIn, facebookSignIn, logOut }
 }
 
 export default useFirebase;
