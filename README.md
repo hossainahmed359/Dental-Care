@@ -1,8 +1,5 @@
-
+# https://dentail-care-hossainahmed359.netlify.app/
 ## Dental Care 
-
-https://dentail-care-hossainahmed359.netlify.app/
-
 
 ### Website Related Technologies
 - This website was created with the following technologies :
