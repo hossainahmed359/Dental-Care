@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
+import { useHistory, useLocation } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
-    const { createAccountWithEmail, updateUserName, emailPasswordSignIn, googleSignIn, facebookSignIn, logOut } = useAuth();
+    const { createAccountWithEmail, updateUserName, emailPasswordSignIn, googleSignIn, facebookSignIn } = useAuth();
+
+    //Redirect 
+    const location = useLocation()
+    const history = useHistory();
+    const redirect_uri = location.state?.from || './'
 
     // States
     const [doesExist, setDoesExist] = useState(false);
@@ -37,7 +43,8 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then((result) => {
-                console.log(result.user)
+                // console.log(result.user)
+                history.push(redirect_uri)
                 setErrorMessage("")
             }).catch((error) => {
                 setErrorMessage(error.message);
@@ -49,7 +56,8 @@ const Login = () => {
         facebookSignIn()
             .then((result) => {
                 // The signed-in user info.
-                console.log(result.user);
+                // console.log(result.user)
+                history.push(redirect_uri)
                 setErrorMessage("")
             })
             .catch((error) => {
@@ -62,7 +70,9 @@ const Login = () => {
         createAccountWithEmail(email, password)
             .then((result) => {
                 // Signed in 
-                console.log(result.user)
+                // console.log(result.user)
+                updateUserName(userName)
+                history.push(redirect_uri)
                 // ...
             })
             .catch((error) => {
@@ -70,12 +80,14 @@ const Login = () => {
             });
     }
 
+
     // handle email sign in || Sign In
     const handleEmailSignIn = () => {
         emailPasswordSignIn(email, password)
             .then((result) => {
                 // Signed in 
-                const user = result.user;
+                // console.log(result.user)
+                history.push(redirect_uri)
                 // ...
             })
             .catch((error) => {

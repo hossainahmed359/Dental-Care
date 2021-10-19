@@ -15,6 +15,7 @@ import {
 } from "react-router-dom";
 import ServiceDetails from './components/ServiceDetails/ServiceDetails';
 import AuthProvider from './contexts/AuthProvider';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
 
@@ -26,8 +27,8 @@ function App() {
           <Switch>
             <Route exact path="/"><Home></Home></Route>
             <Route path="/home"><Home></Home></Route>
-            <Route path="/services"><Services></Services></Route>
-            <Route path="/servicedetails/:serviceId"><ServiceDetails></ServiceDetails></Route>
+            <PrivateRoute path="/services"><Services></Services></PrivateRoute>
+            <PrivateRoute path="/servicedetails/:serviceId"><ServiceDetails></ServiceDetails></PrivateRoute>
             <Route path="/aboutus"><AboutUs></AboutUs></Route>
             <Route path="/doctors"><Doctors></Doctors></Route>
             <Route path="/login"><Login></Login></Route>
