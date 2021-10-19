@@ -14,25 +14,28 @@ import {
   Route,
 } from "react-router-dom";
 import ServiceDetails from './components/ServiceDetails/ServiceDetails';
+import AuthProvider from './contexts/AuthProvider';
 
 function App() {
 
   return (
     <div className="App">
-      <Router>
-        <Navigation></Navigation>
-        <Switch>
-          <Route exact path="/"><Home></Home></Route>
-          <Route path="/home"><Home></Home></Route>
-          <Route path="/services"><Services></Services></Route>
-          <Route path="/servicedetails/:serviceId"><ServiceDetails></ServiceDetails></Route>
-          <Route path="/aboutus"><AboutUs></AboutUs></Route>
-          <Route path="/doctors"><Doctors></Doctors></Route>
-          <Route path="/login"><Login></Login></Route>
-          <Route path="/login"><Login></Login></Route>
-          <Route path="*"><NotFound></NotFound></Route>
-        </Switch>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Navigation></Navigation>
+          <Switch>
+            <Route exact path="/"><Home></Home></Route>
+            <Route path="/home"><Home></Home></Route>
+            <Route path="/services"><Services></Services></Route>
+            <Route path="/servicedetails/:serviceId"><ServiceDetails></ServiceDetails></Route>
+            <Route path="/aboutus"><AboutUs></AboutUs></Route>
+            <Route path="/doctors"><Doctors></Doctors></Route>
+            <Route path="/login"><Login></Login></Route>
+            <Route path="/login"><Login></Login></Route>
+            <Route path="*"><NotFound></NotFound></Route>
+          </Switch>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }
