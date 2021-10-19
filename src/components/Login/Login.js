@@ -123,7 +123,7 @@ const Login = () => {
         <div>
             <Container className="my-5">
                 <br />
-                <h1 className="my-3">{!doesExist ? "Register" : "Login"}</h1>
+                <Button variant="outline-primary" disabled className="my-3 py-2 px-5 rounded-pill"> <h4>{!doesExist ? "Register" : "Login"}</h4> </Button>
                 <div className="col-lg-5 mx-auto">
                     <Button onClick={handleGoogleSignIn} variant="success" size="lg" className="w-100 my-3">
                         Continue with Google
@@ -132,7 +132,8 @@ const Login = () => {
                         Continue with Facebook
                     </Button>
                 </div>
-                <h2 className="my-3">OR</h2>
+                <h3 className="m-3 text-muted">OR</h3>
+
                 <Form onSubmit={handleEmailRegistrationOrLogin} id="myform" className="mx-auto col-lg-5">
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         {!doesExist && <Form.Control onBlur={handleUserName} className="py-3 my-3" type="name" placeholder="Your Name || Required" required />}
