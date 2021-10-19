@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Nav, Navbar, Button } from 'react-bootstrap';
+import { Container, Nav, Navbar, Button, Spinner } from 'react-bootstrap';
 import './Navigaion.css'
 import { Link } from "react-router-dom";
 
@@ -9,6 +9,7 @@ import useAuth from '../../hooks/useAuth';
 const Navigation = () => {
     const { user, logOut } = useAuth();
     // console.log("this is from nav", user)
+
 
     return (
         <div>
@@ -26,7 +27,6 @@ const Navigation = () => {
                             <Link to="/services">Services</Link>
                             <Link to="/doctors">Doctors</Link>
                             <Link to="/aboutus">About Us</Link>
-
                             {!user?.email ? <Link to="/login">Log In</Link> : <Button onClick={logOut} variant="light">Log Out</Button>}
                         </Nav>
                     </Navbar.Collapse>
