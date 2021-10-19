@@ -21,10 +21,12 @@ const Navigation = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="nav-links ms-auto align-items-center">
+                            {user?.email && <Button variant="outline-light my-2 mx-2 text-dark" disabled>{user.displayName}</Button>}
                             <Link to="/home">Home</Link>
                             <Link to="/services">Services</Link>
                             <Link to="/doctors">Doctors</Link>
                             <Link to="/aboutus">About Us</Link>
+
                             {!user?.email ? <Link to="/login">Log In</Link> : <Button onClick={logOut} variant="light">Log Out</Button>}
                         </Nav>
                     </Navbar.Collapse>
