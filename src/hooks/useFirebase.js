@@ -13,6 +13,7 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState('');
     const [user, setUser] = useState({});
+    const [userName, setUserName] = useState(null)
 
     // auth
     const auth = getAuth();
@@ -51,6 +52,8 @@ const useFirebase = () => {
             displayName: name
         }).then(() => {
             // Profile updated!
+            setUserName(name)
+            console.log('Updated user name')
             // ...
         }).catch((error) => {
             // An error occurred
@@ -58,12 +61,12 @@ const useFirebase = () => {
         });
     }
 
-    // User Login || LogOut Observer
+    // Observer
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user)
-                const uid = user.uid;
+                setUserName(user.displayName)
                 // ...
             }
             else {
@@ -80,6 +83,7 @@ const useFirebase = () => {
         signOut(auth)
             .then(() => {
                 setUser({})
+                setUserName(null)
             })
             .catch((error) => {
                 setError(error.message);
@@ -88,7 +92,7 @@ const useFirebase = () => {
     }
 
     // Return
-    return { user, error, isLoading, setIsLoading, createAccountWithEmail, updateUserName, emailPasswordSignIn, googleSignIn, facebookSignIn, logOut }
+    return { userName, user, error, isLoading, setIsLoading, createAccountWithEmail, updateUserName, emailPasswordSignIn, googleSignIn, facebookSignIn, logOut }
 }
 
 export default useFirebase;

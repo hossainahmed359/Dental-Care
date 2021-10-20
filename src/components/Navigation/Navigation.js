@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container, Nav, Navbar, Button, Spinner } from 'react-bootstrap';
-import './Navigaion.css'
+import { Container, Nav, Navbar, Button } from 'react-bootstrap';
+import './Navigaion.css';
 import { Link } from "react-router-dom";
 
 import icon from '../../Images/Icons/icon6.png'
 import useAuth from '../../hooks/useAuth';
 
 const Navigation = () => {
-    const { user, logOut } = useAuth();
+    const { user, logOut, userName } = useAuth();
     // console.log("this is from nav", user)
 
 
@@ -22,11 +22,13 @@ const Navigation = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="nav-links ms-auto align-items-center">
-                            {user?.email && <Button variant="outline-light my-2 mx-2 text-dark" disabled>{user.displayName}</Button>}
                             <Link to="/home">Home</Link>
                             <Link to="/services">Services</Link>
                             <Link to="/doctors">Doctors</Link>
                             <Link to="/aboutus">About Us</Link>
+                            {(userName) &&
+                                <Button variant="outline-light my-2 mx-2 text-dark" disabled>{userName}</Button>
+                            }
                             {!user?.email ? <Link to="/login">Log In</Link> : <Button onClick={logOut} variant="light">Log Out</Button>}
                         </Nav>
                     </Navbar.Collapse>
