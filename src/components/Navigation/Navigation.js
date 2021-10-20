@@ -2,6 +2,8 @@ import React from 'react';
 import { Container, Nav, Navbar, Button } from 'react-bootstrap';
 import './Navigaion.css';
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 import icon from '../../Images/Icons/icon6.png'
 import useAuth from '../../hooks/useAuth';
@@ -9,7 +11,7 @@ import useAuth from '../../hooks/useAuth';
 const Navigation = () => {
     const { user, logOut, userName } = useAuth();
     // console.log("this is from nav", user)
-
+    const avatarIcon = <FontAwesomeIcon icon={faUser} />
 
     return (
         <div>
@@ -27,7 +29,7 @@ const Navigation = () => {
                             <Link to="/doctors">Doctors</Link>
                             <Link to="/aboutus">About Us</Link>
                             {(userName) &&
-                                <Button variant="outline-light my-2 mx-2 text-dark" disabled>{userName}</Button>
+                                <Button variant="outline-light my-2 mx-2 text-dark" disabled><span className="text-white me-2">{avatarIcon}</span>{userName}</Button>
                             }
                             {!user?.email ? <Link to="/login">Log In</Link> : <Button onClick={logOut} variant="light">Log Out</Button>}
                         </Nav>
