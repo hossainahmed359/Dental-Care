@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import Footer from '../Footer/Footer';
 import SingleServiceDetails from '../SingleServiceDetails/SingleServiceDetails';
@@ -27,8 +27,9 @@ const ServiceDetails = () => {
         <div>
             <br />
             <Container className="my-5">
-                <h1 className="text-muted">Know About Our Service</h1>
-                <br />
+                <Button variant="outline-info" size="lg" disabled>
+                    <h3>Know About Our Service</h3>
+                </Button>
                 {serviceDetails.map(serviceDetail =>
                     serviceDetail._id === serviceId
                     &&
