@@ -3,7 +3,7 @@ import { Card, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const ServicesPageService = (props) => {
-    const { _id, photo, title, description, detail_picture } = props.service
+    const { _id, title, description, detail_picture } = props.service
 
     return (
         <div>
