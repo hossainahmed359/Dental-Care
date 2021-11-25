@@ -6,7 +6,7 @@ const AboutUs = () => {
     return (
         <div>
             <div className="home-services my-5"><h1 to="/aboutus" className="text-info">About Us</h1></div>
-            <Container>
+            <Container className="">
                 <Row xs={1} md={2} className="g-5">
                     <Col >
                         <Card className="about-card text-start border-0">
